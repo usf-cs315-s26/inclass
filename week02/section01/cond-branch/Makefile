@@ -1,5 +1,5 @@
-PROG = add2
-OBJS = add2.o add2_c.o add2_s.o
+PROG = isx
+OBJS = isx.o isx_c.o isx_s.o
 
 %.o: %.s
 	as -g -o $@ $<
