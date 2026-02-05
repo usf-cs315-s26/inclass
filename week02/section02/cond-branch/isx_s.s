@@ -11,5 +11,4 @@ isx_s:
     j done
 equal:
     li a0, 1            # a0 = true
-done:
-    ret  
+done: ret  
