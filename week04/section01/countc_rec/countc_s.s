@@ -8,7 +8,7 @@ countc_s:
     lb t0, (a0)
     beq t0, zero, done
 
-    addi sp, sp, -24
+    addi sp, sp, -24        # alloc space for 3 registers
     sd ra, (sp)             # preserve ra
     sd a0, 8(sp)            # preserve s
     sd a1, 16(sp)           # preserve c
@@ -16,8 +16,10 @@ countc_s:
     jal countc_s
     mv t2, a0               # t2 is new_count
 
+    ld ra, (sp)             # restore ra
     ld a0, 8(sp)            # restore s
     ld a1, 16(sp)           # restore c
+    addi sp, sp, 24         # dealloc stack space
     lb t3, (a0)             # t3 is *s
     bne t3, a1, not_c       # if *s == c
     addi t2, t2, 1          # new_count++
