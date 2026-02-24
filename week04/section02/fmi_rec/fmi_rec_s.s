@@ -22,15 +22,17 @@ fmi_rec_s:
     slli t2, a3, 2          # t2 is the offset of max_idx
     add t2, a0, t2          # t2 is the addr of max_idx
     lw t2, (t2)             # t2 is arr[max_idx]
-    jal fmi_rec_s           # recurse
 
-    ble t1, t2, done
-    mv t0, a2               # max_new = idx
-    mv a0, t0
-    j done
+    ble t1, t2, recurse     # found new max?
+    mv t0, a2               # new max
+recurse:
+    addi a2, a2, 1          # set up idx+1 arg
+    mv a3, t0               # set up max_new arg
+    jal fmi_rec_s           # recurse
+    j done                  # leave a0 alone, skip base case
 end_arr:
     mv a0, a3               # return max_idx
 done:
-    ld ra, (sp)
+    ld ra, (sp)             # epilogue
     addi sp, sp, 8
     ret
