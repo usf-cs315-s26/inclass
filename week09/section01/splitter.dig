@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes/>
+  <visualElements>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>4</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1,1,1,1</string>
+        </entry>
+      </elementAttributes>
+      <pos x="220" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>4</int>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>1-bit-half-adder.dig</elementName>
+      <elementAttributes/>
+      <pos x="480" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>1-bit-half-adder.dig</elementName>
+      <elementAttributes/>
+      <pos x="700" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>1-bit-half-adder.dig</elementName>
+      <elementAttributes/>
+      <pos x="680" y="320"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="160" y="120"/>
+      <p2 x="220" y="120"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>
